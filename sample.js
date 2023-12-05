@@ -45,14 +45,7 @@ const mul = (x, y) => x * y;
 */
 const div = (x, y) => y === 0 ? 0 : x / y;
 
-/**
-* @description This function takes two arguments `x` and `b`, and returns the value
-* of `Math.log(x)` divided by the value of `Math.log(b)`.
-* 
-* @param { number } x - The `x` input parameter is the number for which the logarithm
-* is to be computed.
-* 
-* @param { number } b - The `b` input parameter is a scaling factor that adjusts the
-* unit of measurement for the logarithm.
-*/
-const logb = (x, b) => Math.log(x) / Math.log(b);
+const logb = (x, b) => {
+  // log base b of x using change of base
+  return Math.log(x) / Math.log(b)
+};
