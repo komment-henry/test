@@ -45,6 +45,21 @@ const mul = (x, y) => x * y;
 */
 const div = (x, y) => y === 0 ? 0 : x / y;
 
+/**
+* @description This function takes a number `x` and an optional base `b` (defaulting
+* to 10), and returns the value of the natural logarithm of `x` with respect to the
+* specified base `b`.
+* 
+* @param {  } x - The `x` input parameter is the value for which we want to find the
+* logarithm.
+* 
+* @param { number } b - The `b` input parameter is a multiplicative factor that
+* changes the base of the logarithm computation.
+* 
+* @returns { number } The output returned by this function is a floating-point number
+* representing the value of `Math.log(x)` divided by `Math.log(10)`, which can be
+* described concisely as the logarithm of `x` with base `10`.
+*/
 const log = (x, b=10) => {
   // change of base formula
   return Math.log(x) / Math.log(b)
