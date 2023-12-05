@@ -45,22 +45,7 @@ const mul = (x, y) => x * y;
 */
 const div = (x, y) => y === 0 ? 0 : x / y;
 
-/**
-* @description The given function `logb` takes two arguments `x` and `b`, and returns
-* the value of the logarithm of `x` based on the change of base from the default
-* (usually 10) to `b`.
-* 
-* @param { number } x - The `x` input parameter represents the value for which we
-* want to find the logarithm with respect to `b`.
-* 
-* @param { number } b - The `b` input parameter is the base for the logarithm operation.
-* 
-* @returns { number } The output returned by the function `logb` is the value of the
-* logarithm of the input `x` based on the base `b`. The function takes two arguments
-* `x` and `b`, and it returns the value of the logarithm of `x` divided by the
-* logarithm of `b`.
-*/
-const logb = (x, b) => {
-  // log base b of x using change of base
+const log = (x, b=10) => {
+  // change of base formula
   return Math.log(x) / Math.log(b)
 };
