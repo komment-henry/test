@@ -44,3 +44,5 @@ const mul = (x, y) => x * y;
 * or the result of dividing `x` by `y`.
 */
 const div = (x, y) => y === 0 ? 0 : x / y;
+
+const logb = (x, b) => Math.log(x) / Math.log(b);
