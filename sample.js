@@ -1,4 +1,16 @@
 
+/**
+* @description The function `add` takes two arguments `x` and `y`, and returns their
+* sum.
+* 
+* @param { number } x - In the given function `add`, the `x` input parameter is used
+* as a placeholder for the first number being added.
+* 
+* @param {  } y - The `y` input parameter adds the second operand to the first operand.
+* 
+* @returns { number } The function `add` takes two parameters `x` and `y` and returns
+* their sum.
+*/
 const add = (x, y) => x + y;
 
 /**
