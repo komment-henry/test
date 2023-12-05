@@ -1,13 +1,4 @@
 
-/**
-* @description This function adds two input numbers 'x' and 'y' together and returns
-* their sum.
-* 
-* @param { number } x - The `x` input parameter adds the `y` input parameter to its
-* current value.
-* 
-* @param { number } y - The `y` input parameter adds to the value of `x`.
-*/
 const add = (x, y) => x + y;
 
 /**
