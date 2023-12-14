@@ -1,4 +1,16 @@
 
+/**
+* @description The function `add` takes two arguments `x` and `y`, and returns their
+* sum.
+* 
+* @param { any } x - The `x` input parameter adds the `y` input parameter to it.
+* 
+* @param { number } y - The `y` input parameter adds the value of the parameter `y`
+* to the value of the parameter `x`.
+* 
+* @returns { number } The output returned by this function is `NaN`, as the argument
+* `x` is undefined and cannot be added to `y`.
+*/
 const add = (x, y) => x + y;
 
 /**
