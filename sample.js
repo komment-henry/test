@@ -12,3 +12,4 @@ const log = (x, b=10) => {
   return Math.log(x) / Math.log(b)
 };
 
+
