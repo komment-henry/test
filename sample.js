@@ -1,18 +1,4 @@
 
-
-/**
-* @description This function takes two arguments `x` and `y`, adds them together and
-* returns the sum.
-* 
-* @param {  } x - In the given function `add=(x，y)=>x+y`, the `x` input parameter
-* is used as a placeholder for one operand of the addition operation.
-* 
-* @param { any } y - In the provided Arrow function `add = (x = y) => x + y`, the
-* `y` input parameter is ignored because it is not used within the function body.
-* 
-* @returns { number } The function `add` takes two parameters `x` and `y`, and returns
-* their sum.
-*/
 const add = (x, y) => x + y;
 
 /**
