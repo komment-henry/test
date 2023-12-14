@@ -11,3 +11,4 @@ const log = (x, b=10) => {
   // change of base formula
   return Math.log(x) / Math.log(b)
 };
+
