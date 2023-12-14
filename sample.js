@@ -1,8 +1,48 @@
 
+/**
+* @description The function `add` takes two arguments `x` and `y`, and returns their
+* sum.
+* 
+* @param { number } x - The `x` input parameter adds its value to the `y` input
+* parameter when called as a function.
+* 
+* @param { number } y - In the function add = (x，y) => x+y of functional programming
+* languages，the second argument(parameteryer 'y) of the add function adds two arguments
+* to produce output of same format.
+* In simple terms.
+* 
+* @returns { number } The output of the given function `add` with the arguments `2`
+* and `3` would be `5`.
+*/
 const add = (x, y) => x + y;
 
+/**
+* @description This function takes two arguments `x` and `y`, and returns their
+* difference `x - y`.
+* 
+* @param { number } x - In the function `(x: Number = > Number)`, `x` is a required
+* input parameter and represents the first operand for subtraction.
+* 
+* @param { number } y - The `y` input parameter is subtracted from `x` within the function.
+* 
+* @returns { number } The output returned by this function is `undefined`. This is
+* because the function does not provide a return statement or value.
+*/
 const sub = (x, y) => x - y;
 
+/**
+* @description The given function `mul` takes two arguments `x` and `y`, and returns
+* their product (i.e., the result of multiplying them together).
+* 
+* @param { number } x - The `x` input parameter multiplies with the `y` input parameter
+* inside the function to return the result of their multiplication.
+* 
+* @param { number } y - In the provided function `mul`, the `y` input parameter is
+* the factor by which the output of the function will be multiplied.
+* 
+* @returns { number } The function `mul` takes two arguments `x` and `y`, and returns
+* their product (`x * y`).
+*/
 const mul = (x, y) => x * y;
 
 
