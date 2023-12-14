@@ -1,14 +1,74 @@
 
 
+/**
+* @description The given function `add` takes two arguments `x` and `y` and returns
+* their sum.
+* 
+* @param { number } x - In the given function `add`, the `x` input parameter is the
+* first number to be added.
+* 
+* @param { number } y - In the given function `add`, the `y` input parameter is added
+* to the `x` input parameter.
+* 
+* @returns { number } The function `add` takes two parameters `x` and `y`, and returns
+* their sum.
+*/
 const add = (x, y) => x + y;
 
 
+/**
+* @description This function takes two arguments `x` and `y`, and returns the
+* difference between `x` and `y`.
+* 
+* @param { number } x - The `x` input parameter is not used at all.
+* 
+* @param { number } y - In the function `sub=(x،y)=>(x-y)`, the `y` input parameter
+* is subtracted from the `x` input parameter.
+* 
+* @returns { number } The output returned by the function `sub` with input parameters
+* `x` and `y` is the difference of `x` and `y`.
+*/
 const sub = (x, y) => x - y;
 
 
+/**
+* @description The function `mul` takes two arguments `x` and `y`, and returns their
+* product (`x * y`).
+* 
+* @param { any } x - The `x` input parameter multiplies with the `y` input parameter
+* within the function.
+* 
+* @param { number } y - The `y` input parameter multiplies with the `x` input parameter
+* inside the function.
+* 
+* @returns { number } The function `mul` takes two parameters `x` and `y`, and returns
+* their product as an integer.
+*/
 const mul = (x, y) => x * y;
 
 
+/**
+* @description This function takes two arguments `x` and `y`, and returns the value
+* of `x` divided by `y`, unless `y` is equal to zero (in which case it returns zero).
+* 
+* @param { number } x - In the given function `div`, the `x` input parameter is the
+* dividend that is being divided by the divisor `y`.
+* 
+* @param { number } y - The `y` input parameter is not used anywhere inside the
+* function body. It is only assigned to the function's return value if the expression
+* `y === 0` is falsey (i.e., `y` is not equal to 0).
+* 
+* @returns { number } The output returned by this function is a Number value. The
+* function takes two arguments 'x' and 'y', and returns the result of dividing 'x'
+* by 'y', except when 'y' is equal to 0 then the function returns 0. In other words;
+* 
+* div(25,'5') = (25/5) = 5 (result: 5)
+* div(-16,'4') = ( (-16)/4) = -4 (result:-4)
+* div(5,'0') = (5/0) =  Infinity Not allowed by mathematics ( result is  not computed).
+* div(-8937,'0')= (-8937/0)= Infinity Not allowed by mathematics ( result:  not computed)
+* 
+* So the function only computes the result when 'y' is not equal to zero.
+*/
 const div = (x, y) => y === 0 ? 0 : x / y;
 
 /**
