@@ -1,19 +1,6 @@
 
 
 def hello(name: str) -> str:
-  """
-  The function "hello" takes a string argument "name" and returns a string greeting
-  of "hello followed by the name".
-
-  Args:
-      name (str): The `name` input parameter is a string that is passed to the
-          function when it is called.
-
-  Returns:
-      str: The output returned by the function `hello` is "hello!" since no argument
-      is passed to the function.
-
-  """
   return f"hello, {name}!"
 
 def add(x, y):
