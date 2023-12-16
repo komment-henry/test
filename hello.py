@@ -1,6 +1,19 @@
 
 
 def hello(name: str) -> str:
+  """
+  This function takes a string `name` as input and returns a string with the
+  greeting "hello" followed by a comma and the input `name`.
+
+  Args:
+      name (str): The `name` input parameter is a string that is passed as an
+          argument to the `hello` function.
+
+  Returns:
+      str: The output returned by the function `hello` is "hello,Name!" where
+      Name is the input string.
+
+  """
   return f"hello, {name}!"
 
 def add(x, y):
