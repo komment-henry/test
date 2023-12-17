@@ -1,19 +1,5 @@
 
-/**
-* @description The given function `add` takes two arguments `x` and `y`, and returns
-* their sum (`x + y`).
-* 
-* @param {  } x - The `x` input parameter is not used at all.
-* 
-* @param { number } y - In the given function `add`, the `y` input parameter is added
-* to the `x` input parameter.
-* 
-* @returns { number } The output returned by this function is ` undefined`.
-* 
-* This is because the function attempts to perform an operation on `x` and `y`, but
-* `x` and `y` are both `undefined`, so the function cannot execute the addition
-* operation and instead returns `undefined`.
-*/
+
 const add = (x, y) => x + y;
 
 /**
