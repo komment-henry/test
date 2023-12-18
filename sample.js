@@ -46,3 +46,4 @@ const mul = (x, y) => x * y;
 * function returns 0.
 */
 const div = (x, y) => y === 0 ? 0 : x / y;
+
