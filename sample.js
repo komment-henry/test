@@ -10,18 +10,8 @@
 */
 const add = (x, y) => x + y;
 
-/**
-*/
 const sub = (x, y) => x - y;
 
-/**
-* @description The given function `mul` takes two arguments `x` and `y`, and returns
-* their product (i.e., the result of multiplying them together).
-* 
-* @param {  } x - In the provided JavaScript function `mul`, the `x` input parameter
-* is multiplied by the `y` input parameter to return their product.
-* 
-* @param { number } y - In the function `mul=(x ,y) -> x * y`, the `y` input parameter
-* is the multiplier.
-*/
 const mul = (x, y) => x * y;
+
+const div = (x, y) => y === 0 ? 0 : x / y;
