@@ -1,1 +1,3 @@
-undefined
+
+def noop():
+  pass
