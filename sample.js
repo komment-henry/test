@@ -47,15 +47,25 @@ const mul = (x, y) => x * y;
 */
 const div = (x, y) => y === 0 ? 0 : x / y;
 
-/**
-* @description The function mmul takes two matrices matA and matB as input and returns
-* the result of their matrix multiplication.
-* 
-* @param { array } matA - The `matA` input parameter is the first matrix to be multiplied.
-* 
-* @param { array } matB - The `matB` input parameter is the second matrix to be multiplied.
-*/
 const mmul = (matA, matB) => {
+  /*
+  // Define the result matrix as a row-major array
+  var matC = [];
+
+  // Perform matrix multiplication
+  for (var i = 0; i < 4; i++) {
+    for (var j = 0; j < 4; j++) {
+      var dotProduct = 0;
+      for (var k = 0; k < 4; k++) {
+        dotProduct += matA[i * 4 + k] * matB[k * 4 + j];
+      }
+      matC[i * 4 + j] = dotProduct;
+    }
+  }
+
+  return matC;
+  */
+  
   var matC = [];
   // Perform matrix multiplication
   for (var i = 0; i < 4; i++) {
@@ -67,4 +77,6 @@ const mmul = (matA, matB) => {
       matC[i * 4 + j] = dotProduct;
     }
   }
+
+  return matC;
 }
