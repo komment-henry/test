@@ -1,3 +1,4 @@
+// @komment write all
 
 /**
 * @description The function `add` takes two arguments `x` and `y`, and returns their
