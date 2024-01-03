@@ -1,9 +1,58 @@
 // @komment write all
 
+/**
+* @description The given function `add` takes two arguments `x` and `y`, and returns
+* their sum.
+* 
+* @param {  } x - The `x` input parameter adds its value to the `y` input parameter's
+* value within the function.
+* 
+* @param { number } y - The `y` input parameter adds the sum of both variables when
+* added to `x`.
+* 
+* @returns { number } The function `add` takes two arguments `x` and `y`, and returns
+* their sum (`x + y`).
+* 
+* So if we call the function with `x = 2` and `y = 3`, the output returned would be:
+* 
+* `add(2 ,3) = 2 + 3 = 5`
+* 
+* In other words.
+*/
 const add = (x, y) => x + y;
 
+/**
+* @description This function takes two arguments `x` and `y`, and returns the
+* difference between `x` and `y`.
+* 
+* @param { number } x - The `x` input parameter passed to the function takes the
+* value of `y` and subtracts it from `x`.
+* 
+* @param { number } y - The `y` input parameter is ignored.
+* 
+* @returns { number } The function takes two arguments `x` and `y`, and returns their
+* difference `x - y`.
+* 
+* In other words:
+* 
+* `sub(x: number[y]: number) -> number`: The function returns the difference between
+* `x` and `y`, which are both numbers.
+*/
 const sub = (x, y) => x - y;
 
+/**
+* @description The given function `mul` takes two arguments `x` and `y` and returns
+* their product (`x * y`).
+* 
+* @param { number } x - In the function `mul=(x,y)=>x*y`, the `x` input parameter
+* multiplies the value of `y`.
+* 
+* @param { number } y - In the function `mul = (x)`.`, `y` is a parameters and it
+* takes on the role of a multiplier.
+* 
+* @returns { number } The function `mul` takes two parameters `x` and `y`, and returns
+* their product `x * y`.
+*/
 const mul = (x, y) => x * y;
 
 /**
