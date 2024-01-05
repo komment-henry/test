@@ -24,6 +24,173 @@ class LogisticHelper {
    Cancelled: 'cancelled',
    Error: 'error'
  }
+/**
+* @description This function calculates the total shipping cost for a quantity of
+* wine bottles based on various factors such as destination country and shipping
+* method (economy or express), and it compares the results by price to select the
+* best option.
+* 
+* @param { any } data - The `data` parameter is an object that contains information
+* about the shipment and NFT details.
+* 
+* @param { boolean } ignoreRestrictions - The `ignoreRestrictions` input parameter
+* allows the function to ignore any shipping restrictions that may be present and
+* only consider the costs for the default/current restriction setting. If set to
+* true or undefined (the default), the function will only return options for the
+* current shipping country's restrictions.
+* 
+* @returns { object } The output of this function is an object containing details
+* about various costs and options for shipping NFTs. Here is a description of what
+* is included:
+* 
+* 	- `valueNFTexVAT`: This is the value of the NFTs (in euros) after adding VAT at
+* the standard rate.
+* 	- `insurance`: The cost of insurance for the shipment (as a percentage).
+* 	- `totalPackagingPrice`: The total cost of packaging materials and shipping supplies.
+* 	- `vat`: The value-added tax (VAT) amount charged on top of the packaging and
+* shipping costs.
+* 	- `dutiesAndFees`: Any duties and fees owed on the shipment. This is a sum of
+* different components such as vatOnCostWine and vatOnShipping.
+* 	- `totalShippingCost`: The total cost of shipping the NFTs (inclusive of all
+* duties and taxes).
+* 	- `deliveryDetails`: An object with details about the delivery such as number of
+* bottles and palletized status.
+* 	- `nftPackageOptions`: This contains information related to the type of shipment
+* and its weight division into different classes of transport costs per bottle or
+* package of 750 ml wine/or sparkling bottle (NFTs) as follows. It's like comparing
+* a certain quantity or value on bottles against others but still paying according
+* to volume packaging class rates when choosing NFT delivery:
+* [],  "econom", []] or "express", [].  If there are only econom or only express
+* shipping options available it will only have these elements not all three together.
+*   There may also just one key pair with corresponding values under this objects
+* like carrier information if its available or total cost of delivery details so
+* make your calculations accordingly when calling upon certain properties off the
+* object; compareByPrice allows comparator functionality to function properly depending
+* on what properties should take precedence; you'll want
+* `carrierName`: string that returns either `EconExpressCarrierObject' or null for
+* non-express delivery and if we pass true as our third arg (use the existing one
+* which only allows economy deliveries since those may exist under another branding
+* arrangement): `shipping` instead has its own property like normal ExpressCoverage;
+* note that all costs associated must follow rules provided via EU rulesets found
+* through these objects respective factories - factories ensure conformity pertaining
+* to given region's regulations such as UK's govUK when sourcing UK branded labels
+* for example whereas factories elsewhere adhere strictly following national law
+* like dejure legal code when needed for specific goods covered under related EU
+* harmonised frameworks without explicit references provided here through these
+* classes since those are typically known throughout each region.  In essence NFT
+* DeliveryCostModel ensures alignment among localized pricing schema without needing
+* additional configuration or modifications via settings files since it auto-generates
+* all costs dynamically; one exception occurs during construction if express has
+* both its' internal costs calculated along side external carriers via their custom
+* objects for shipping calculation (this isn't possible today because there exist
+* only EconCoverage & ShppingFactories so ignore mention about inner carrier workings
+* since won't cover those). As such shippingOption must at minimum meet requirement
+* before express options can even considered for pricing calculations thus preventing
+* customer dissatisfaction by delivering poor choices if cheapest service available
+* only offered certain features; ensure all essential fields provided pertaining
+* customer desires as needed accordingly with calculated prices upfront so expectant
+* purchaser clearly understand costs prior to ordering completion rather then expecting
+* unexpected charges after final purchase occurs.
+* In order words: if "econom" shipping method chosen instead of 'express" we need
+* remove/delete unnecessary parts including `valueNFTexVAT`  , 'insurance'
+* 'totalPackagingPrice', `vat`, dutiesTaxesCurent + vatOnShipments since won't affect
+* calculated totals with EconCoverage when generating our result object based upon
+* desired option set; leave 'deliveryDetails.' as array (empty one initially created
+* below) without changing value contained if non-zero; if there aren't any other
+* economy methods avialble then just use prePopulatedObject instead of populating
+* result directly so user still has fine grained controll; carrier name returned
+* within either EconExpressCarrierObjects contains appropriate text information
+* useful to compare offerings among similar pricing levels which remain unchanged
+* under each delivery type's comparison conditions since both  economic shippers
+* rely upon internal factories respectively assigned elsewhere if region offers
+* special perks for larger qty bulk discounted packing items versus retail purchasing
+* rates offered separately per supplier region chosen upon user login session placement
+* determining whether to create an 'econ object instance for express if region based
+*   tax settings demand it unlike regular product types with their set classes used
+* always during request sessions involving econExpressFactories -  otherwise skip
+* constructing entire NFTPackages instance object completely until required at runtime
+* via result populatoin below call method again using those prepopulated non-key
+* factory based EconomCoverage options containing same set methods + any non factory
+* shippers offered directly by seller without special regional constraints such as
+* 'collect from shop free service only avail with express choice'. Only difference
+* exists when comparing both object properties of a single shared item type within
+* their associated collections respectively (econom or ExpressNFTPackage): use these
+* comparison
+* calculations against actual values populated after requesting shipping estimates.
+* Once found please include calculated value within total calculated totals area
+* alongside related costs already included like packing cost (packaging materials
+* supplies etc) , duty charges+ tax due amount upon purchase confirmation with
+* delivery selection(express) which covers most if not whole shipping process but
+* may differ by location as previously stated. Note final runtime cost still requires
+* direct user decision selection once compared before submission
+* Please ensure region or tax related factors influence delivery selection accordingly
+* and make clear all expected charges when order processed after customer agreement
+* has been captured appropriately to ensure satisfying the customers purchase choices
+* are validated preemptively with no unexpected surprises later; also provide suitable
+* feedback path to inform changes required along the way instead of forcing manual
+* override at point of acceptance. To ensure correctness for customers as desired
+* output product remain neutral yet fully populated when processing occurs based
+* upon what data set provided prior; calculate correct shipping fees  and package
+* related services for total price requested using these calculations as baseline
+* for validation process instead if manually overriding without considering relevant
+* cost factors resulting potential losses/discrepancies for customer account activity
+* since manual inputs risk causing billing inconsistencies depending upon usage
+* environment constraints thus impacting potential client relationship trust leading
+* unfavorable business growth over time despite correct billable events happening;
+* customers become reliant reusing appropriate values stored accordingly avoiding
+* user confusion if needed repeat purchases necessitate similar payment schedules
+* or different payment gateways chosen; finally customer is more confident paying
+* precise billing requests as needed because clear breakdown exist preventing errors
+* and improves satisfaction through proper documentation / transparency achieved
+* previously. Thank You!!!"
+* Any non-key based factory options will need to be treated differently when compared
+* with the EconExpressCarrierObject factories that ensure conformity per regional
+* regulations via UK govUK or EU based ones having custom shipping methods defined
+* at runtime through user preferences / configurations established prior . One
+* exception arises when constructing Express NFTPackages instance object without
+* explicitly populating it via non-key factory derived methods - In essence the
+* EconCoverage class manages both econom
+* and express calculations sharing same underlying costs but apply region specific
+* adjustments during runtime.
+* Regular ProductTypes always rely upon established set classes containing specific
+* shipping methods required throughout entire runtime session placements , while
+* special economy shippers provided separately elsewhere may need additional
+* prePopulatedFactories assigned differently due to various factors such as bulk
+* pricing considerations compared against base price listings associated per each
+* distinct ProductVariants unique item ID combinations across entire offer pool. Non
+* Key factory usage relies upon runtime factories not stored inside result objects
+* so one-time initialization calls work efficiently throughout all regions world
+* wide irrespective any user preference/configuration setting assigned differently
+* per product variant region selection. Please observe that econom methods might
+* differ slightly versus normal product based types whenever economy carriers offer
+* free pickups / special discounted delivery rates exclusively accessible if bulk
+* order sizes meet threshold conditions defined by those factories , then nonkey
+* factories will produce results consistent among same delivery provider despite
+* other products costs/delivery type selections being compared; this minimizes the
+* effort and complexity of manual overrides during order placement stage requiring
+* extra confirmation procedures enabling user friendly decision making processes
+* suitable throughout wide user base with differing regional tastes , product demands
+* & available discount promotions across markets ensuring seamless cross border sales
+* operations at optimized level for long term growth . If any issues appear we suggest
+* reaching out so together let find solution prior fulfilling orders securely at
+* most optimal costs possible given current industry market standards prevailing
+* today avoiding loss revenues risks stemming confusion resulting poor relationship
+* / non repeat business opportunity.
+* To summarize: Delivery option selection involves several cost considerations to
+* be calculated and factored before generating NFT DeliveryModel with accurate costs
+* based on inputted properties such as delivery address , order volume & items
+* requested being processed alongside available economic carrier services / tax
+* compliant rules ensuring users always receives final results displaying all inclusive
+* pricing information; regional influences dictate product selection prioritization
+* & adjust prerequisite calculations for best results aligning localized laws ,
+* regulations  while avoiding unexpected fees hidden within original calculated
+* amounts - providing trust & transparency between user/admin via well managed
+* workflow designed above catered per client request scenario at hand; additionally
+* when non key factories are used  compare their respective outcomes separately with
+* shared EconCoverage calcs performed afterwards accounting for UK based shippers
+* utilizing proprietary algorithms embedded via shipping factory setup prior . Any
+* issues require support expert assistance.
+*/
  public async getDeliveryOptions(data: any, ignoreRestrictions = false) {
    console.log('getDeliveryOptions')
    const result: any = {}
@@ -91,6 +258,18 @@ class LogisticHelper {
      nest: true,
      raw: true,
    })
+/**
+* @description The given function takes an iterable object `data.nfts` and maps each
+* element to its `id` property.
+* 
+* @param { any } item - The `item` parameter is not used or required inside the arrow
+* function because it is implicitly assigned the value of each element of the
+* `data.nfts` array as the array is iterated over.
+* 
+* @returns { array } The output of this function is an array of string IDs since
+* data.nfts is an array of objects and map() method returns only the values within
+* the iteration. In other words.
+*/
    nftIds = data.nfts.map((item: any) => {
      return item.id
    }),
@@ -161,6 +340,17 @@ class LogisticHelper {
    })
    const defaultPackageOption = 1 //1 cardboard//3 cardboard + case
    let nftPackageOptions: any = []
+/**
+* @description This function takes an array of `packageOptionsRaw` objects and maps
+* each object to a new object with properties like `id`, `name`, `description`,
+* `images`, `price`, and `perCase`.
+* 
+* @param { any } option - The `option` input parameter is a raw array of objects
+* that contains information about the options available for purchase.
+* 
+* @returns { object } The output returned by the function is an array of objects
+* where each object represents a package option.
+*/
    let packageOptions = packageOptionsRaw.map((option: any) => {
      return {
        id: option.option_id,
@@ -209,6 +399,15 @@ class LogisticHelper {
        availableOptions = [1, 2, 3, 4, 5]
      }
      if (nftDetail.price_at_drop > 5000) {
+/**
+* @description The given function takes the `availableOptions` array and returns a
+* new array containing all items that are not equal to 1.
+* 
+* @param { any } item - In the provided code snippet `item` is the input parameter
+* for the arrow function and it refers to each item inside the `availableOptions`
+* array. The purpose of the function is to filter out any items that have a value
+* of 1.
+*/
        availableOptions = availableOptions.filter((item: any) => item !== 1)
      }
      if (nftDetail.nft_details.no_of_bottles) {
@@ -223,6 +422,14 @@ class LogisticHelper {
      }
 
 
+/**
+* @description The function is finding an element within the `data.nfts` array that
+* has an `id` property equal to the `nft_token_id` passed as a parameter.
+* 
+* @param { any } elem - In the context of your code snippet`, the `elem` input
+* parameter is the current element being iterated over within the `.find()` method's
+* callback function.
+*/
      const nftPackageOption = data.nfts.find((elem: any) => +elem.id === +nftDetail.nft_token_id)
      let nftPackageOptionId = nftPackageOption?.packageOptionId
        ? nftPackageOption.packageOptionId
@@ -295,6 +502,31 @@ class LogisticHelper {
        nft_ids: nftRestrictions,
      }
    }
+/**
+* @description This function maps over an array of objects and creates a new object
+* for each item with the properties:
+* 
+* 	- `nb`: the number of bottles
+* 	- `weight`: the weight of the package
+* 	- `width`: the width of the package
+* 	- `height`: the height of the package
+* 	- `length`: the length of the package
+* 	- `bottleVolume`: the volume of each bottle
+* 	- `price`: the price of the package
+* 	- `fromApi`: a flag indicating if the price comes from an API
+* 	- `packagingPrice`: the packaging price of the item (which is 0 if not specified)
+* 
+* The function also computes the total packaging price by summing up the packaging
+* prices of all items.
+* 
+* @param { any } item - The `item` input parameter is an element of an array of
+* objects that contains information about packages.
+* 
+* @returns { object } The output of this function is an array of objects containing
+* information about each package. Each object has properties such as "nb", "weight",
+* "width", "height", "length", "nbBottles", "bottleVolume", "price", and "packagingPrice".
+* Additionally; the total packaging price is calculated and added to the object.
+*/
    packages = packages.map((item: any) => {
      let packag: any = {
        nb: 1,
@@ -399,6 +631,34 @@ class LogisticHelper {
    }
 
 
+/**
+* @description This is an asynchronous JavaScript function called `getShipping` that
+* takes four parameters: `packages`, `nbBottles`, `packagingPrice`, and `shippingObject`.
+* It retrieves shipping rates from a logistic service and then processes the results
+* to determine the most cost-effective option based on the packaging price.
+* 
+* @param { any } packages - The `packages` input parameter passed to the `getShipping()`
+* function contains an array of objects representing the packages to be shipped.
+* Each package object should contain a unique ID and the number of bottles being
+* shipped for that package.
+* 
+* @param { any } nbBottles - Based on the name `nbBottles`, it seems that this
+* parameter represents the number of bottles being shipped.
+* 
+* @param { any } packagingPrice - The `packagingPrice` input parameter is used to
+* calculate the final cost of packaging for each shipping option (econom and express).
+* 
+* @param { any } shippingObject - The `shippingObject` input parameter is a reference
+* to an object that will be filled with the shipping options (economy and express)
+* returned by the function.
+* 
+* @returns { object } This function takes four arguments: `packages`, `nbBottles`,
+* `packagingPrice`, and `shippingObject`. It returns an object with two properties:
+* `econom` and `express`. These properties contain arrays of shipping options sorted
+* by price (lowest to highest). The `econom` property contains options with delivery
+* durations less than 10 days and the `express` property contains options with
+* delivery durations greater than or equal to 10 days.
+*/
    async function getShipping(packages: any, nbBottles: any, packagingPrice: any, shippingObject: any) {
      const shippingOptions: any = {}
 
@@ -447,6 +707,39 @@ class LogisticHelper {
    }
 
 
+/**
+* @description This function prepares a result object for shipping calculations based
+* on the given result array and packaging price. It sorts the result array by price
+* and returns a combined object with the sorted array's name and shipping details
+* (price and insurance). If the destination country is USA or UK and if EU wines are
+* shipped outside of EU region and not fulfilled from a different location.
+* 
+* @param { any } resultArray - The `resultArray` input parameter is an array of
+* objects that contains information about the shipping quotes retrieved from the
+* carrier's API.
+* 
+* @param { any } packagingPrice - The `packagingPrice` input parameter represents
+* the cost of packaging materials for shipping the bottles of wine.
+* 
+* @returns { object } The `prepareResult` function takes an array of objects and a
+* packaging price as input. It performs the following tasks:
+* 
+* 1/ Sorts the array of objects based on their "price" property.
+* 2/ Returns the first object from the sorted array.
+* 3/ Calculates the shipping cost using a separate `calculationShippingCost` function.
+* 4/ Updates the "shippingPrice" and "insurance" properties of the returned object
+* with the calculated shipping cost.
+* 5/ Calculates the total packaging price by adding the "packagingPrice" to the
+* "shippingPackaging" property.
+* 6/ Calculates the VAT and duties & taxes for the destination country based on its
+* ISO code.
+* 7/ Updates the "vat" and "dutiesTaxes" properties of the returned object with the
+* calculated amounts.
+* 8/ Returns the updated object with all the calculated properties.
+* 
+* The output of this function is an object with properties like "name", "service",
+* "shippingPrice", "packagingPrice", "insurance", "vat", and "dutiesTaxes".
+*/
    async function prepareResult(resultArray: any, packagingPrice: any) {
      let result: any = null
      if (resultArray.length > 0) {
@@ -524,6 +817,23 @@ class LogisticHelper {
    }
 
 
+/**
+* @description This function calculates the shipping cost for a list of NFTs being
+* sold to customers at different countries. It considers factors such as VAT rates
+* for each country and calculates duties & taxes based on the NFT price and packaging
+* costs.
+* 
+* @param { any } shippingPrice - The `shippingPrice` input parameter represents the
+* cost of shipping the NFTs to the buyer.
+* 
+* @param { any } packagingPrice - The `packagingPrice` input parameter represents
+* the cost of packaging and is used to calculate the total packaging price along
+* with the vat and duties taxes.
+* 
+* @returns { object } The output returned by the `calculationShippingCost` function
+* is an object containing several calculated fields related to shipping costs for a
+* purchase of non-fungible tokens (NFTs).
+*/
    async function calculationShippingCost(shippingPrice: any, packagingPrice: any) {
      let insurance = 0
      let vat = 0
@@ -580,6 +890,23 @@ class LogisticHelper {
    }
 
 
+/**
+* @description This function compares two objects based on their price attribute and
+* returns an integer indicating the relative order of the objects. If the first
+* object has a lower price than the second object; then the result will be negative.
+*   If the first object has a greater price than the second object; then the result
+* will be positive.
+* 
+* @param { any } a - In the function `compareByPrice(a: any)`.
+* 
+* @param { any } b - The `b` input parameter is used as a reference to compare against
+* the `a` parameter.
+* 
+* @returns { integer } The output returned by this function is a sorted array of
+* elements based on their price. If two elements have the same price (i.e., their
+* price property values are identical), the function will return a result of 0 and
+* keep both elements unchanged.
+*/
    function compareByPrice(a: any, b: any) {
      if (a.price < b.price) {
        return -1
@@ -673,10 +1000,42 @@ class LogisticHelper {
  }
 
 
+/**
+* @description This function retrieves and filters packaging options based on the
+* user's NFTs and their associated drop details.
+* 
+* @param { any[] } nfts - The `nfts` input parameter is an array of NFT objects
+* passed into the function.
+* 
+* @param { string } user_id - The `user_id` input parameter is not used anywhere
+* within the given code snippet. Therefore I can confidently answer that the `user_id`
+* input parameter has no effect on the functions behavior.
+* 
+* @returns { object } The output returned by this function is an object that contains
+* three properties: `packageOptions`, `nftPackageOptions`, and `totalPackagingPrice`.
+* 
+* `packageOptions` is an array of objects representing the available packaging options
+* for the bottles. Each object has the following properties: `id`, `name`, `description`,
+* `images`, `price`, and `perCase`.
+* 
+* `nftPackageOptions` is an array of objects representing the available packaging
+* options for the NFTs.
+*/
  public async getPackagingOptions(nfts: any[] = [], user_id: string) {
    const nftDetails = await DbModel.NftDetailModel.findAll({
      where: {
        nft_token_id: {
+/**
+* @description The function takes an array of items (`nfts`) and returns a new array
+* with only the `id` property of each item.
+* 
+* @param { any } item - In this function `nfts.map((item: any) => { ... }`, `item`
+* is a reference to each item within the `nfts` array that is being processed by the
+* `map()` method.
+* 
+* @returns { object } The function takes an array of items (`nfts`) and returns a
+* new array containing only the `id` property of each item.
+*/
          [Op.in]: nfts.map((item: any) => {
            return item.id
          }),
@@ -736,6 +1095,19 @@ class LogisticHelper {
    })
 
 
+/**
+* @description This function maps over an array of `any` objects (represented as
+* `packageOptionsRaw`) and transforms each object into a new object with properties
+* `id`, `name`, `description`, `images`, `price`, and `perCase`.
+* 
+* @param { any } option - In the provided function`, the `option` input parameter
+* is an element of the array `packageOptionsRaw` and it contains properties like
+* `option_id`, `name`, `description`, `image`, `price_eur`, and `per_case`.
+* 
+* @returns { object } The function takes an array of `any` objects and returns an
+* array of objects with the properties `id`, `name`, `description`, `images`, `price`,
+* and `perCase`.
+*/
    let packageOptions = packageOptionsRaw.map((option: any) => {
      return {
        id: option.option_id,
@@ -779,6 +1151,14 @@ class LogisticHelper {
        availableOptions = [1, 2, 3, 4, 5]
      }
      if (nftDetail.price_at_drop > 5000) {
+/**
+* @description The given function takes the `availableOptions` array and returns a
+* new array with all elements except the one with value `1`.
+* 
+* @param { any } item - The `item` input parameter is not used or referenced anywhere
+* within the function passed as the filter predicate. It is simply assigned to the
+* variable name `item`.
+*/
        availableOptions = availableOptions.filter((item: any) => item !== 1)
      }
 
@@ -788,6 +1168,13 @@ class LogisticHelper {
      }
 
 
+/**
+* @description This function searches the `nfts` array for an element with a `id`
+* property that equals the `nftTokenId` passed as an argument.
+* 
+* @param { any } elem - The `elem` input parameter is not used at all because it has
+* type `any`, which means it will never satisfy the `===`.
+*/
      const nftPackageOption = nfts.find((elem: any) => +elem.id === +nftDetail.nft_token_id)
      let nftPackageOptionId = nftPackageOption?.packageOptionId
        ? nftPackageOption.packageOptionId
@@ -827,6 +1214,14 @@ class LogisticHelper {
  }
 
 
+/**
+* @description This is a Node.js function called `burnAndShip` that handles the
+* process of burning and shipping NFTs (non-fungible tokens) after receiving user input.
+* 
+* @param { any } data - The `data` input parameter is an object that contains various
+* properties related to the shipping order and NFTs being sent. It is used throughout
+* the function to retrieve relevant information for creating the shipment.
+*/
  public async burnAndShip(data: any) {
 
 
@@ -841,6 +1236,19 @@ class LogisticHelper {
      }
 
 
+/**
+* @description The function takes a list of `item` objects as input and returns a
+* new list containing only the `id` property of each `item`.
+* 
+* @param { any } item - The `item` input parameter is a destructured variable from
+* the `data.nfts` array that contains the current item being processed. It is
+* type-casted to any due to the varargs syntax (`...items: any`).
+* 
+* @returns { array } The function takes an array of objects with a `Map` method as
+* input and returns an array of item IDs.
+* 
+* Concisely: the function maps over each item and returns only the `id` property value.
+*/
      const nftIds = data.nfts.map((item: any) => {
        return item.id
      })
@@ -993,6 +1401,20 @@ class LogisticHelper {
  }
 
 
+/**
+* @description This function completeShipment handles the completion of a shipment
+* process for a WineChain customer order. It searches for the relevant shipping
+* details using the shipment ID and then generates outbound requests for each NFT
+* associated with the shipment.
+* 
+* @param { any } shipmentId - The `shipmentId` input parameter is used to specify
+* the id of the shipment to be completed.
+* 
+* @returns { object } This function takes a `shipmentId` as input and completes the
+* shipment by generating PDFs and QR codes for each NFT included within that shipment.
+* Additionally it sends out an email to three separate email addresses regarding the
+* order details of wine shipment information.
+*/
  public async completeShipment(shipmentId: any) {
    console.log('completeShipment shipmentId', shipmentId)
    const shippingOrderDetailsModel: TypeShippingOrderDetails = await DbModel.ShippingOrderDetailsModel.findOne({
@@ -1137,6 +1559,22 @@ class LogisticHelper {
 
 
 
+/**
+* @description This function cancels a shipment by updating the corresponding Nft
+* detail and shipping order details records and also attempting to cancel the shipment
+* with the logistic service.
+* 
+* @param { any } shipmentId - The `shipmentId` input parameter is used to identify
+* the specific shipment to be canceled.
+* 
+* @returns { object } The function `cancelShipment` takes a `shipmentId` as an input
+* and returns an object with an `error` property. If any of the database operations
+* fail or if the `LogisticService.cancelShipment()` method throws an error while
+* cancelling the shipment(a try/catch block is used for this), then the `error`
+* property of the returned object will be set to `true`. If all the database operations
+* are successful and `LogisticService.cancelShipment()` method succeeds without any
+* issues the `error` property of the returned object will be set to `false`.
+*/
  public async cancelShipment(shipmentId: any) {
 
 
