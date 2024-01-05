@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 
-
 import LogisticService from '../services/logistic.service'
 import { Op } from 'sequelize'
 import UserHelper from './user.helper'
