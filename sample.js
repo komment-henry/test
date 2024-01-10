@@ -1,6 +1,36 @@
 
+/**
+* @description The given function `add` takes two arguments `x` and `y` and returns
+* their sum.
+* 
+* @param { number } x - In the function `add = (xptoy) => x + y`, the `x` input
+* parameter is added to the `y` input parameter.
+* 
+* @param { number } y - In the function `add=(x、y)=>x+y`, the `y` input parameter
+* adds its value to `x` .
+* 
+* @returns { number } The function `add` takes two arguments `x` and `y`, and returns
+* their sum.
+*/
 const add = (x, y) => x + y;
 // @komment write
+/**
+* @description This function takes two arguments `x` and `y`, and returns the
+* difference between them: `x - y`.
+* 
+* @param { number } x - In the given function `sub`, the `x` input parameter is
+* passed by value and represents the first operand for the subtraction operation.
+* 
+* @param { number } y - In the function `sub=(x.y)`, `y` is a parameter that represents
+* the second argument being passed to the function.
+* 
+* @returns { number } The function takes two arguments `x` and `y`, and returns the
+* difference between `x` and `y`.
+* 
+* In other words:
+* 
+* The output of the function is `x - y`.
+*/
 const sub = (x, y) => x - y;
 
 /**
