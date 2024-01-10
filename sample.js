@@ -82,3 +82,4 @@ const mmul = (matA, matB) => {
 
   return matC;
 }
+
