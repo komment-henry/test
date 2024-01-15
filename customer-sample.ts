@@ -25,6 +25,24 @@ class LogisticHelper {
    Error: 'error'
  }
 
+/**
+* @description This function takes an array of objects representing shipment options
+* and returns a sorted array of the objects based on their "price" property.
+* 
+* @param { any } data - The "data" input parameter is not used at all within the
+* "getUserMedia()". Its purpose seems to be solely to pass values to functions and/or
+* variables elsewhere.
+* 
+* @param { boolean } ignoreRestrictions - The `ignoreRestrictions` parameter is an
+* optional `boolean` value that allows skipping the check for restricted packages
+* if it is set to `true`.
+* 
+* @returns { object } The `compareByPrice` function takes two objects as parameters
+* and compares their price attributes. If the first object's price is lower than the
+* second object's price then the result will be negative. if the first object has a
+* higher price than the second object then the result is positive and if the price
+* of both objects is the same (i.e., identical) then 0 will be returned.
+*/
  public async getDeliveryOptions(data: any, ignoreRestrictions = false) {
    console.log('getDeliveryOptions')
    const result: any = {}
@@ -94,6 +112,23 @@ class LogisticHelper {
    })
 
 
+/**
+* @description This function takes a list of items (`data.nfts`) and returns a new
+* list containing only the `id` property of each item.
+* 
+* @param { any } item - In the given function `data.nfts.map()`, the `item` input
+* parameter is an anonymous function that takes an `any` type of item as its argument.
+* 
+* @returns { object } The function takes a list of `item` objects as input and returns
+* a list of item IDs.
+* 
+* The function iterates over the list of items using `.map()` method and for each
+* item it extracts the `id` property using the arrow function syntax `.((item: any)
+* => { return item.id }).`.
+* 
+* Therefore the output of this function would be a new list containing only the IDs
+* of the items from the original list.
+*/
    nftIds = data.nfts.map((item: any) => {
      return item.id
    }),
@@ -165,6 +200,26 @@ class LogisticHelper {
    const defaultPackageOption = 1 //1 cardboard//3 cardboard + case
    let nftPackageOptions: any = []
 
+/**
+* @description This function maps over an array of "option" objects and returns a
+* new array of simplified object structures with the following properties:
+* 
+* 	- id (option_id)
+* 	- name
+* 	- description
+* 	- images (with just the first image)
+* 	- price (in EUR)
+* 	- perCase
+* 
+* In other words: it filters out unnecessary properties from the input options and
+* provides a more compact representation.
+* 
+* @param { any } option - In this function `option` is an array of objects each
+* representing a package option.
+* 
+* @returns { object } The function takes an array of `any` objects and maps each
+* object to a new object with specific properties.
+*/
    let packageOptions = packageOptionsRaw.map((option: any) => {
      return {
        id: option.option_id,
