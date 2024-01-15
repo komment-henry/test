@@ -25,34 +25,6 @@ class LogisticHelper {
    Error: 'error'
  }
 
-/**
-* @description attribute-wise comparator for objects with a `price` property; it
-* compares two items based on their `price`.
-* 
-* @param { any } data - As an object with several properties and functions that deal
-* with data linked to wine shipment calculations; a variable known as `data` serves
-* to send or receive this object of type any (a value without a defined structure).
-* This parameter allows different versions of the module shipped at varied times
-* from different authors or for distinct situations may utilize differing amounts
-* of calculated data as the core object has an open-ended nature; and further allows
-* these calculations then be adapted with user customisations upon the provided
-* "result" so long as such modifications don't mutate original properties - all while
-* maintaining consistent comparability within calculations.
-* 
-* @param {  } ignoreRestrictions - The `ignoreRestrictions` input parameter disables
-* restrictions-based comparisons for shipping options. This means that the function
-* will not consider differences between shipping options that have different service
-* types (such as economy vs. express) when comparing their prices. In effect ignoring
-* such differences can change the result of the comparison to prioritize cheaper
-* options over more expensive ones despite possible limitations and trade-offs of
-* each choice.
-* 
-* @returns { object } prior to calling this function a shipping options object with
-* the economic and express shipping services was created for the input parameters (
-* package Options  , Nft Details) a comparison of both shipping options is done based
-* on their price . The economic service shipping prices r arranged alphabetically(a-z
-* or z-a). Based on that.
-*/
  public async getDeliveryOptions(data: any, ignoreRestrictions = false) {
    console.log('getDeliveryOptions')
    const result: any = {}
@@ -121,16 +93,7 @@ class LogisticHelper {
      raw: true,
    })
 
-/**
-* @description This function maps each item inside the `data.nfts` array to its `id`
-* property and returns an array of only those IDs.
-* 
-* @param { any } item - The `item` input parameter is not used anywhere inside the
-* function body. It's simply assigned to the parameter and then discarded.
-* 
-* @returns { object } The output returned by this function is an array of strings
-* consisting of the "id" property of each object within the `data.nfts` map.
-*/
+
    nftIds = data.nfts.map((item: any) => {
      return item.id
    }),
@@ -201,17 +164,7 @@ class LogisticHelper {
    })
    const defaultPackageOption = 1 //1 cardboard//3 cardboard + case
    let nftPackageOptions: any = []
-/**
-* @description This function takes an array of `packageOptionsRaw` objects and maps
-* each object to a new object with properties like `id`, `name`, `description`,
-* `images`, `price`, and `perCase`.
-* 
-* @param { any } option - The `option` input parameter is a raw array of objects
-* that contains information about the options available for purchase.
-* 
-* @returns { object } The output returned by the function is an array of objects
-* where each object represents a package option.
-*/
+
    let packageOptions = packageOptionsRaw.map((option: any) => {
      return {
        id: option.option_id,
