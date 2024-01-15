@@ -24,49 +24,7 @@ class LogisticHelper {
    Cancelled: 'cancelled',
    Error: 'error'
  }
-
-/**
-* @description If an object is given to the compareByPrice function alongside a
-* reference object b:any it compares the price attribute of the given object a against
-* the prices attribute of the referenced object b; this function compares these
-* values and returns a result indicating the relative order (negative means less
-* than price or price).
-* 
-* @param { any } data - Based on the code provided:
-* 
-* The "data" input parameter is not used anywhere within the specified function
-* implementation of `compareByPrice`.
-* 
-* @param {  } ignoreRestrictions -
-* 
-* @returns {  } Allows packages that meet specified conditions (cost constraints),
-* transport modes for all deliveries (economic or express) from warehouse to consumer
-* based on shipping option comparison using a specific compare method object for NFT
-* package. It compares two elements depending on the price property. A new array
-* containing objects containing pertinent delivery and payment data are returned as
-* the function result with appropriate sorting of bundles using precise price
-* comparison criteria to rank each pack accordingly based on price before applying
-* the shipping settings from another nested variable inside result named 'shippingOption';
-* there might be both econom or express kinds depending upon which condition they
-* fit best among four different value pairs that determine package price - name
-* amount totalCostVAT dutiesTaxesCurent & dutiesAndFeesTotal; and additional three
-* fields used when comparing modes called valueNFTexVAT fullCarrier names; these
-* modes include either just econom or just express but no both as 'delete' deletes
-* all elements leaving it empty. Finally by applying currentTotalPackaging currentPackages
-* array sorts and returns resulting lists without repeated Nft objects using .
-* filter(nfToSkip). Value true means NFT included to avoid packs w/ duplicates &
-* skip unessential bundles during export of output so that one object contains data
-* from original arrays but modified into pertinent shapes to create desired exports
-* used inside React apps by API functions (fetching shippingRates & comparing). For
-* instance an econom express array like [
-*   econom:[{value:349815723.49},{name:'Carlsberg xtra cold'}, { totalPackagingCurentPrice
-* :0  whole packagesCurrentPriceTotalExVAT&dutiesAndFeesCurentTotal price vat included=
-* true }],
-*   express:[{value:998989899632294513},{name:'Corgi Premium Boutique Leder',  
-* servicesName 'standard  ', whole packagesCurrentPriceExVAT &dutiesTaxesCurent :true
-*    wholePackagesName:[], fullShippigRateHistoryForWizard ,fullNameForTracking wiki
-* 'Mr Fred N.
-*/
+ 
  public async getDeliveryOptions(data: any, ignoreRestrictions = false) {
    console.log('getDeliveryOptions')
    const result: any = {}
