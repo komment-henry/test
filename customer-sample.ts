@@ -25,6 +25,18 @@ class LogisticHelper {
    Error: 'error'
  }
 
+/**
+* @description
+* 
+* @param { any } data - toPass].push({ op: 'Replace', pid: 'Nft Details', data });
+* This is passing an object containing new property values for the top-level
+* "NftDetails" key inside the `data` input parameter for the deep extend merger and
+* overwrite method of JavaScript Objects (https://www.techiedook.com/deep-extend-javascript).
+* 
+* @param {  } ignoreRestrictions -
+* 
+* @returns { object }
+*/
  public async getDeliveryOptions(data: any, ignoreRestrictions = false) {
    console.log('getDeliveryOptions')
    const result: any = {}
@@ -93,6 +105,17 @@ class LogisticHelper {
      raw: true,
    })
 
+/**
+* @description This function maps over the `data.nfts` array and returns an array
+* of just the `id` properties for each item.
+* 
+* @param { any } item - The `item` input parameter is an element of the array being
+* mapped over.
+* 
+* @returns { array } The output of this function is an array of strings containing
+* the `id` values of each item within the `data.nfts` array. The function takes each
+* item as an argument and returns its `id` property.
+*/
    nftIds = data.nfts.map((item: any) => {
      return item.id
    }),
