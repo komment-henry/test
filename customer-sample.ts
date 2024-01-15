@@ -26,22 +26,46 @@ class LogisticHelper {
  }
 
 /**
-* @description This function takes an array of objects representing shipment options
-* and returns a sorted array of the objects based on their "price" property.
+* @description If an object is given to the compareByPrice function alongside a
+* reference object b:any it compares the price attribute of the given object a against
+* the prices attribute of the referenced object b; this function compares these
+* values and returns a result indicating the relative order (negative means less
+* than price or price).
 * 
-* @param { any } data - The "data" input parameter is not used at all within the
-* "getUserMedia()". Its purpose seems to be solely to pass values to functions and/or
-* variables elsewhere.
+* @param { any } data - Based on the code provided:
 * 
-* @param { boolean } ignoreRestrictions - The `ignoreRestrictions` parameter is an
-* optional `boolean` value that allows skipping the check for restricted packages
-* if it is set to `true`.
+* The "data" input parameter is not used anywhere within the specified function
+* implementation of `compareByPrice`.
 * 
-* @returns { object } The `compareByPrice` function takes two objects as parameters
-* and compares their price attributes. If the first object's price is lower than the
-* second object's price then the result will be negative. if the first object has a
-* higher price than the second object then the result is positive and if the price
-* of both objects is the same (i.e., identical) then 0 will be returned.
+* @param {  } ignoreRestrictions -
+* 
+* @returns {  } Allows packages that meet specified conditions (cost constraints),
+* transport modes for all deliveries (economic or express) from warehouse to consumer
+* based on shipping option comparison using a specific compare method object for NFT
+* package. It compares two elements depending on the price property. A new array
+* containing objects containing pertinent delivery and payment data are returned as
+* the function result with appropriate sorting of bundles using precise price
+* comparison criteria to rank each pack accordingly based on price before applying
+* the shipping settings from another nested variable inside result named 'shippingOption';
+* there might be both econom or express kinds depending upon which condition they
+* fit best among four different value pairs that determine package price - name
+* amount totalCostVAT dutiesTaxesCurent & dutiesAndFeesTotal; and additional three
+* fields used when comparing modes called valueNFTexVAT fullCarrier names; these
+* modes include either just econom or just express but no both as 'delete' deletes
+* all elements leaving it empty. Finally by applying currentTotalPackaging currentPackages
+* array sorts and returns resulting lists without repeated Nft objects using .
+* filter(nfToSkip). Value true means NFT included to avoid packs w/ duplicates &
+* skip unessential bundles during export of output so that one object contains data
+* from original arrays but modified into pertinent shapes to create desired exports
+* used inside React apps by API functions (fetching shippingRates & comparing). For
+* instance an econom express array like [
+*   econom:[{value:349815723.49},{name:'Carlsberg xtra cold'}, { totalPackagingCurentPrice
+* :0  whole packagesCurrentPriceTotalExVAT&dutiesAndFeesCurentTotal price vat included=
+* true }],
+*   express:[{value:998989899632294513},{name:'Corgi Premium Boutique Leder',  
+* servicesName 'standard  ', whole packagesCurrentPriceExVAT &dutiesTaxesCurent :true
+*    wholePackagesName:[], fullShippigRateHistoryForWizard ,fullNameForTracking wiki
+* 'Mr Fred N.
 */
  public async getDeliveryOptions(data: any, ignoreRestrictions = false) {
    console.log('getDeliveryOptions')
@@ -113,21 +137,15 @@ class LogisticHelper {
 
 
 /**
-* @description This function takes a list of items (`data.nfts`) and returns a new
-* list containing only the `id` property of each item.
+* @description This function takes the `data.nfts` map and returns a new array with
+* only the `id` values of the items within the map.
 * 
-* @param { any } item - In the given function `data.nfts.map()`, the `item` input
-* parameter is an anonymous function that takes an `any` type of item as its argument.
+* @param { any } item - The `item` parameter is an array of objects representing NFT
+* data and its `id` property is being extracted from each object one by one and
+* stored as an array of strings.
 * 
-* @returns { object } The function takes a list of `item` objects as input and returns
-* a list of item IDs.
-* 
-* The function iterates over the list of items using `.map()` method and for each
-* item it extracts the `id` property using the arrow function syntax `.((item: any)
-* => { return item.id }).`.
-* 
-* Therefore the output of this function would be a new list containing only the IDs
-* of the items from the original list.
+* @returns { array } The output of the function is an array of strings consisting
+* of the `id` values of each item inside the `data.nfts` map.
 */
    nftIds = data.nfts.map((item: any) => {
      return item.id
@@ -201,24 +219,30 @@ class LogisticHelper {
    let nftPackageOptions: any = []
 
 /**
-* @description This function maps over an array of "option" objects and returns a
-* new array of simplified object structures with the following properties:
+* @description This function takes a list of `any` objects representing package
+* options and maps them to new objects with specified properties (id%, name%,
+* description%, images[], price%, perCase) based on the values of those options.
 * 
-* 	- id (option_id)
-* 	- name
-* 	- description
-* 	- images (with just the first image)
-* 	- price (in EUR)
-* 	- perCase
+* @param { any } option - In the given function `(option: any) => { ...`, the `option`
+* input parameter is being passed a list of object with property name "option",
+* inside map() function which take each item from `packageOptionsRaw` as input to
+* the function.
+* In other words its iterating through `packageOptionsRaw` list and pass each element
+* as a parameter to the function you defined .
 * 
-* In other words: it filters out unnecessary properties from the input options and
-* provides a more compact representation.
+* @returns { object } The function takes an array of `any` objects and returns an
+* array of objects with the following properties:
 * 
-* @param { any } option - In this function `option` is an array of objects each
-* representing a package option.
+* 	- `id`: the `option_id` field of the input object
+* 	- `name`: the `name` field of the input object
+* 	- `description`: the `description` field of the input object
+* 	- `images`: an array containing a single image object (the `image` field of the
+* input object)
+* 	- `price`: the `price_eur` field of the input object
+* 	- `perCase`: the `per_case` field of the input object
 * 
-* @returns { object } The function takes an array of `any` objects and maps each
-* object to a new object with specific properties.
+* In other words: the function takes an array of arbitrary objects and transforms
+* them into a new array of structured objects with named properties.
 */
    let packageOptions = packageOptionsRaw.map((option: any) => {
      return {
