@@ -131,15 +131,15 @@ class LogisticHelper {
 
 
 /**
-* @description The given function takes an array of objects (`data.nfts`) and returns
-* a new array containing only the `id` property of each object.
+* @description This function maps each element of the `data.nfts` array to its `id`
+* property and returns an array of those `id` values.
 * 
-* @param { any } item - In this context,”(item: any)” is specifying the type of the
-* “item” variable to be any value of any data type. It serves as a placeholder for
-* any data element inside the array (“data.nfts”).
+* @param { any } item - The `item` parameter is an element of the array being mapped
+* over (in this case `data.nfts`), and is available as a variable within the function.
 * 
-* @returns { array } The output of this function is an array containing the `id`
-* values of each item within the `data.nfts` map.
+* @returns { array } The function takes an array of objects (`data.nfts`) and maps
+* each object to its `id` property. Therefore the output of the function is an array
+* of integers representing the `id` values of the original objects.
 */
    nftIds = data.nfts.map((item: any) => {
      return item.id
@@ -213,39 +213,15 @@ class LogisticHelper {
    let nftPackageOptions: any = []
 
 /**
-* @description This function takes an array of objects represented as `option: any`
-* and returns a new array of object where each item has the following properties:
+* @description This function takes an array of `any` objects and maps them to a new
+* object with the keys `id`, `name`, `description`, `images`, `price`, and `perCase`,
+* extracting those values from each `option` object.
 * 
-* 	- id: the `option_id` field of the original object
-* 	- name: the `name` field of the original object
-* 	- description: the `description` field of the original object
-* 	- images: an array containing only the first image associated with the option (as
-* represented by the `image` field)
-* 	- price: the `price_eur` field of the original object
-* 	- perCase: the `per_case` field of the original object
-* 
-* @param { any } option - The `option` input parameter is a mapping function's single
-* parameter and has type `any`. This signifies that it can store any type of object
-* since JavaScript's type system does not restrict it explicitly. Within the mapped
-* function callback object literals with properties `option_id`, `name`, `description`,
-* `image`, `price_eur`, and `perCase` will be produced.
+* @param { any } option - The `option` input parameter is an element of the array
+* being mapped over.
 * 
 * @returns { object } The function takes an array of `any` objects (`packageOptionsRaw`)
-* and maps over each object to return a new object with specified properties.
-* 
-* The output returned by this function is an array of objects with the following properties:
-* 
-* 	- `id`: the `option_id` property of the original object
-* 	- `name`: the `name` property of the original object
-* 	- `description`: the `description` property of the original object
-* 	- `images`: an array with a single item corresponding to the `image` property of
-* the original object
-* 	- `price`: the `price_eur` property of the original object
-* 	- `perCase`: the `per_case` property of the original object
-* 
-* In other words., the function creates a new object for each input object and
-* extracts specific properties from it to create a new object with a specific set
-* of properties.
+* and maps each object to a new object with specified properties.
 */
    let packageOptions = packageOptionsRaw.map((option: any) => {
      return {
@@ -297,12 +273,14 @@ class LogisticHelper {
      if (nftDetail.price_at_drop > 5000) {
 
 /**
-* @description This function takes the `availableOptions` array and returns a new
-* array with all elements that are not equal to 1.
+* @description The given function `availableOptions.filter((item: any) => item !==
+* 1)` filters out all elements from the `availableOptions` array that are equal to
+* 1.
 * 
-* @param { any } item - In the provided function `availableOptions.filter((item:
-* any) => item !== 1)`, the `item` input parameter is the current element being
-* iterated over from the `availableOptions` array.
+* @param { any } item - In the given function `availableOptions.filter((item: any)
+* => item !== 1)`, the `item` input parameter is not used or needed. The function
+* takes an element from the `availableOptions` array and returns a new array containing
+* all elements that do not equal 1.
 */
        availableOptions = availableOptions.filter((item: any) => item !== 1)
      }
@@ -318,11 +296,12 @@ class LogisticHelper {
      }
 
 /**
-* @description This function finds an element within the `data.nfts` array using the
-* `id` property of the `nftDetail` object and returns it if the values match.
+* @description This function uses `find()` method of `Array` to find the element(s)
+* that satisfy the condition passed as a function. In this case the condition is
+* `+elem.id === +nftDetail.nft_token_id`.
 * 
-* @param { any } elem - In the provided code snippet,`elem` is the iteration element
-* passed to the arrow function's `(elem: any) => ...` parameters.
+* @param { any } elem - The `elem` input parameter is not used or needed anywhere
+* inside the provided function.
 */
      const nftPackageOption = data.nfts.find((elem: any) => +elem.id === +nftDetail.nft_token_id)
      let nftPackageOptionId = nftPackageOption?.packageOptionId
