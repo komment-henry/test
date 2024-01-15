@@ -26,22 +26,40 @@ class LogisticHelper {
  }
  
 /**
-* @description
+* @description This function is used to compare two objects based on their price
+* attribute and returns an integer indicating the relative order of the objects.
 * 
-* @param { any } data -
+* @param { any } data - The 'data' input parameter is not used within the provided
+* function. It's declared as an optional parameter but isn't assigned to or referenced
+* throughout the function's implementation.
 * 
-* @param {  } ignoreRestrictions - If `true`, disables the validation of country
-* restrictions for shipping and returns the NFTs without regard to delivery country
-* restrictions; if an NFT cannot be shipped to a particular nation owing to restrictions
-* imposed by that country or tax laws that vary depending on the nation.
+* @param { boolean } ignoreRestrictions - The `ignoreRestrictions` input parameter
+* allows the function to skip comparing NFTs based on restrictions (such as only
+* available for purchase within a specific region) and instead prioritize comparison
+* based solely on price.
 * 
-* @returns { object } (NFT delivery result). This describes a collection of items
-* describing how much wine and for how many NFT tokens and any applicable shipping
-* costs were delivered for an NFT auction sale transaction. Each item has a field
-* with property values; the description should only cover items returned by the
-* function rather than the inputs. This response can include integers or floating-point
-* numbers representing quantities or currency amounts; the exact type depends on the
-* items described.
+* @returns { object } The `compareByPrice` function compares two objects based on
+* their `price` attribute and returns an integer indicating their relative order.
+* If the first object has a lower price than the second object; then the result will
+* be negative. If the first object has a greater price than the second object; then
+* the result will be positive.
+* 
+* The `packageOptions` is an object containing options for packaging and shipping NFTs.
+* 
+* The `nftPackageOptions` is an object containing options for shipping and handling
+* NFTs specifically.
+* 
+* The `NftDetails` object contains details about the NFTs being packaged and shipped.
+* 
+* The `deliveryDetails` array includes several elements each representing different
+* possible delivery arrangements for packages sent within specific times of size
+* ranges or delivery distances.,
+* 
+* After evaluating both `packageOptions` & `nftPackageOptions`, ` compareByPrice`
+* sorts them according to price preference before creating 3 objects (`economy`,
+* `express`, `total`) with various attributes related respectively respectively
+* shipping costs such as packaging/shipping fee values tax amounts total etc
+* for these types  Economy&Express (within certain weight sizes or delivery time frames).
 */
  public async getDeliveryOptions(data: any, ignoreRestrictions = false) {
    console.log('getDeliveryOptions')
