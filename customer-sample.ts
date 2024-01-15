@@ -130,6 +130,20 @@ class LogisticHelper {
    })
 
 
+/**
+* @description The function takes a `data` object with a `nfts` property that is an
+* array of items and returns an array of `id` values from each item within the array.
+* 
+* @param { any } item - In the provided function (`data.nfts.map((item: any) =>
+* {...})`), the `item` parameter is an argument passed to each element of the
+* `data.nfts` array.
+* 
+* @returns { array } The output of the function is an array containing the `id`
+* property of each item inside the `data.nfts` object.
+* 
+* Concisely: It returns an array of integers representing the unique identifiers
+* (ids) of the items inside the object.
+*/
    nftIds = data.nfts.map((item: any) => {
      return item.id
    }),
@@ -201,6 +215,23 @@ class LogisticHelper {
    const defaultPackageOption = 1 //1 cardboard//3 cardboard + case
    let nftPackageOptions: any = []
 
+/**
+* @description This function maps over an array of "option" objects and transforms
+* each object into a new object with the properties id', name", description', images',
+* price' and perCase".
+* 
+* @param { any } option - In the given function `option` is an any type parameter
+* and it is being mapped over an array of objects with the property names like
+* `option_id`, `name`, `description`, `image`, `price_eur`, `per_case`.
+* 
+* @returns { object } The function takes an array of `any` objects (`packageOptionsRaw`)
+* and maps each object to a new object with specified properties (`id`, `name`,
+* `description`, `images`, `price`, and `perCase`).
+* 
+* The output returned by the function is an array of objects each containing the
+* properties specified above with the values coming from the corresponding properties
+* of the input `option` objects.
+*/
    let packageOptions = packageOptionsRaw.map((option: any) => {
      return {
        id: option.option_id,
@@ -250,6 +281,16 @@ class LogisticHelper {
      }
      if (nftDetail.price_at_drop > 5000) {
 
+/**
+* @description The function `availableOptions.filter((item: any) => item !== 1)`
+* filters the `availableOptions` array to include only elements that are not equal
+* to 1.
+* 
+* @param { any } item - In the given function `availableOptions.filter((item: any)
+* => item !== 1)`, the `item` input parameter is not used or referenced at all. It
+* is simply there to satisfy the TypeScript compiler's type checker and does not
+* have any effect on the function's behavior.
+*/
        availableOptions = availableOptions.filter((item: any) => item !== 1)
      }
      if (nftDetail.nft_details.no_of_bottles) {
@@ -263,6 +304,15 @@ class LogisticHelper {
        }
      }
 
+/**
+* @description This function uses the `find()` method of an array-like object (called
+* `data.nfts`) to find the element with the matching `id` property. The `id` property
+* is compared to the `+nftDetail.nft_token_id` value using the `+` unary operator
+* for numeric conversion.
+* 
+* @param { any } elem - The `elem` parameter is an iterated element from the `data.nfts`
+* array.
+*/
      const nftPackageOption = data.nfts.find((elem: any) => +elem.id === +nftDetail.nft_token_id)
      let nftPackageOptionId = nftPackageOption?.packageOptionId
        ? nftPackageOption.packageOptionId
