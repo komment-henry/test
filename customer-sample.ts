@@ -26,25 +26,22 @@ class LogisticHelper {
  }
  
 /**
-* @description This function compares two objects based on their "price" property
-* and returns an integer indicating their relative order (negative if the first
-* object has a lower price than the second object).
+* @description
 * 
-* @param { any } data - The `data` input parameter is not used within the function
-* signature of `compileNFTShipping()`. It is an unused argument and therefore has
-* no effect on the function's behavior or output.
+* @param { any } data -
 * 
-* @param { object } ignoreRestrictions - The `ignoreRestrictions` input parameter
-* is used to exclude certain package options from the calculation of the total
-* shipping cost based on certain restrictions such as drop mode or shipment country.
+* @param {  } ignoreRestrictions - If `true`, disables the validation of country
+* restrictions for shipping and returns the NFTs without regard to delivery country
+* restrictions; if an NFT cannot be shipped to a particular nation owing to restrictions
+* imposed by that country or tax laws that vary depending on the nation.
 * 
-* @returns { object } The output returned by this function is an object that contains
-* details about the packaging options for shipping NFTs. The object includes properties
-* such as package options (e.g., size of bottles), delivery details (e.g., number
-* of bottles and packages), and shipping options (e.g., express or economy service).
-* The function also calculates and includes taxes and duties costs for each shipping
-* option. The output is organized into two objects: one for non-NFT items (packaging)
-* and another for NFTs (delivery).
+* @returns { object } (NFT delivery result). This describes a collection of items
+* describing how much wine and for how many NFT tokens and any applicable shipping
+* costs were delivered for an NFT auction sale transaction. Each item has a field
+* with property values; the description should only cover items returned by the
+* function rather than the inputs. This response can include integers or floating-point
+* numbers representing quantities or currency amounts; the exact type depends on the
+* items described.
 */
  public async getDeliveryOptions(data: any, ignoreRestrictions = false) {
    console.log('getDeliveryOptions')
